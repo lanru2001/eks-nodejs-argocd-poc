@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/lanru2001/aks-nodejs-argocd-poc.git"
     targetRevision: HEAD
-    path: kubernetes/dev
+    path: kubernetes
   destination:
     namespace: nodejs
     server: "https://kubernetes.default.svc" 
