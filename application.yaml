@@ -4,11 +4,17 @@ metadata:
   name: eks-nodejs-argocd
   namespace: argocd
 spec:
+  project: default
+  source:
+    repoURL: "https://github.com/lanru2001/aks-nodejs-argocd-poc.git"
+    targetRevision: HEAD
+    path: dev
   destination:
     namespace: nodejs
-    server: "https://kubernetes.default.svc"
-  source:
-    path: manifests
-    repoURL: "https://github.com/lanru2001/aks-nodejs-argocd-poc"
-    targetRevision: github-action-project-setup
-  project: default
+    server: "https://kubernetes.default.svc" 
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+     selfHeal: true
+     prune: true
