@@ -3,11 +3,11 @@ kind: DestinationRule
 metadata: argocd-destinationroute
   name: 
 spec:
-  host: 
-  subsets:
-  - name: v1
-    labels:
-      version: v1
-  - name: v2
-    labels:
-      version: v2
+  host: argo.example.com
+#   subsets:
+#   - name: v1
+#     labels:
+#       version: v1
+#   - name: v2
+#     labels:
+#       version: v2
