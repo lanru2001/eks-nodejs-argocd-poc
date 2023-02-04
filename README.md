@@ -13,6 +13,8 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ##  kubectl get all -n argocd
 
 ```bash
+
+Azeez.Olanrewaju@DCITSYS01-L argocd-istio % kubectl get all -n argocd
 NAME                                                   READY   STATUS    RESTARTS   AGE
 pod/argocd-application-controller-0                    1/1     Running   0          53s
 pod/argocd-applicationset-controller-f5f44f5d9-vfd9j   1/1     Running   0          54s
@@ -51,6 +53,5 @@ replicaset.apps/argocd-server-6d65f8d8f5                     1         1        
 NAME                                             READY   AGE
 statefulset.apps/argocd-application-controller   1/1     53s
 Azeez.Olanrewaju@DCITSYS01-L argocd-istio % 
-
 
 ```
