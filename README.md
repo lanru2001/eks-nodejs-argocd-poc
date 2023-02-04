@@ -55,7 +55,7 @@ statefulset.apps/argocd-application-controller   1/1     53s
 Azeez.Olanrewaju@DCITSYS01-L argocd-istio % 
 
 ```
-# Create a namespace istio-system for Istio components:
+# Create a namespace istio-system for Istio components
 ```bash
 
 kubectl create namespace istio-system
