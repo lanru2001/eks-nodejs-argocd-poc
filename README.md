@@ -100,7 +100,7 @@ export PATH=$PWD/bin:$PATH
 istioctl install --set profile=demo -y
 
 # Add a namespace label to instruct Istio to automatically inject Envoy sidecar proxies when you deploy your application later
-kubectl label namespace default istio-injection=enabled
+kubectl label namespace argocd  istio-injection=enabled
 
 ```
 # Deploy istio Gateway and Virtualservice
