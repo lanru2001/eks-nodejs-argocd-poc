@@ -4,7 +4,7 @@ metadata:
   name: argocd-server-dtrl
   namespace: istio-system
 spec:
-  host: dev.argocd.example.com
+  host: dev.argocd.com
   trafficPolicy:
     tls:
       mode: DISABLE
