@@ -86,3 +86,13 @@ kubectl patch deployment \
   "--auth-mode=server"
 ]}]'
 ```
+# Deploy istio Gateway and Virtalservice
+
+```bash
+kubectl apply -f istio-gateway.yml   
+kubectl apply -f istio-virtualservice.yml 
+
+kubectl get gateway -n argocd 
+kubectl get virtualservice -n argocd 
+
+```
