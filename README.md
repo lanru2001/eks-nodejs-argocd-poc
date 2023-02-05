@@ -86,6 +86,23 @@ kubectl patch deployment \
   "--auth-mode=server"
 ]}]'
 ```
+
+# Download istio
+```bash 
+curl -L https://istio.io/downloadIstio | sh -
+# Move to the Istio package directory. For example, if the package is istio-1.16.2:
+cd istio-1.16.2
+
+# Add the istioctl client to your path (Linux or macOS)
+export PATH=$PWD/bin:$PATH
+
+# For this installation, we use the demo configuration profile. It’s selected to have a good set of defaults for testing, but there are other profiles for production or performance testing
+istioctl install --set profile=demo -y
+
+# Add a namespace label to instruct Istio to automatically inject Envoy sidecar proxies when you deploy your application later
+kubectl label namespace default istio-injection=enabled
+
+```
 # Deploy istio Gateway and Virtalservice
 
 ```bash
