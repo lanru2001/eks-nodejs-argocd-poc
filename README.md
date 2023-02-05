@@ -61,3 +61,16 @@ Azeez.Olanrewaju@DCITSYS01-L argocd-istio %
 kubectl create namespace istio-system
 
 ```
+
+# Tells argocd-server to start in “insecure mode” and patched argocd-server deployment
+
+```bash
+kubectl patch deployment \
+  argocd-server \
+  --namespace argocd \
+  --type='json' \
+  -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/args", "value": [
+  "server",
+  "--auth-mode=server"
+]}]'
+```
