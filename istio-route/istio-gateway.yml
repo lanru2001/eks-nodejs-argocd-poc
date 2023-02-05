@@ -8,7 +8,7 @@ spec:
     istio: ingressgateway
   servers:
     - hosts:
-        - argo.example.com
+        - dev.argocd.example.com
       port:
         name: https
         number: 443
@@ -17,7 +17,7 @@ spec:
         mode: SIMPLE
         credentialName: argocd-secret    
     - hosts:
-        - argo.example.com
+        - dev.argocd.example.com
       port:
         name: http
         number: 80
