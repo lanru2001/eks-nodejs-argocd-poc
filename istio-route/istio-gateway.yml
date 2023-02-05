@@ -1,7 +1,8 @@
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: argocd-gateway
+  namespace: argocd
 spec:
   selector:
     istio: ingressgateway
@@ -9,12 +10,18 @@ spec:
     - hosts:
         - argo.example.com
       port:
+        name: https
+        number: 443
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: argocd-secret    
+    - hosts:
+        - argo.example.com
+      port:
         name: http
         number: 80
         protocol: HTTP
       tls:
-        httpsRedirect: true
-            
-        
-        
+        httpsRedirect: true      
         
