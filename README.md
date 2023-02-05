@@ -103,7 +103,7 @@ istioctl install --set profile=demo -y
 kubectl label namespace default istio-injection=enabled
 
 ```
-# Deploy istio Gateway and Virtalservice
+# Deploy istio Gateway and Virtualservice
 
 ```bash
 kubectl apply -f istio-gateway.yml   
