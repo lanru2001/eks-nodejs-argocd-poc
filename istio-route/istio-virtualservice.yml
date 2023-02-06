@@ -7,13 +7,10 @@ spec:
   gateways:
   - argocd-gateway
   hosts:
-  - dev.argocd.com
+  - dev1.argocdserver.com
   http:
-  - match:
-    - uri:
-        prefix: /
-    route:
-    - destination:
-        host: dev.argocd.com
-        port:
-          number: 80            
+    - route:
+      - destination:
+          host: argocd-server
+          port:
+            number: 80                                                                                                                                                                                         
