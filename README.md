@@ -55,10 +55,10 @@ statefulset.apps/argocd-application-controller   1/1     53s
 Azeez.Olanrewaju@DCITSYS01-L argocd-istio % 
 
 ```
-# Create a namespace istio-system for Istio components
+# Add a namespace label to instruct Istio to automatically inject Envoy sidecar proxies when you deploy your application later
 ```bash
-
-kubectl create namespace istio-system
+kubectl label namespace argocd  istio-injection=enabled
+kubectl get namespace -L istio-injection
 
 ```
 
@@ -86,9 +86,6 @@ export PATH=$PWD/bin:$PATH
 
 # For this installation, we use the demo configuration profile. It’s selected to have a good set of defaults for testing, but there are other profiles for production or performance testing
 istioctl install --set profile=demo -y
-
-# Add a namespace label to instruct Istio to automatically inject Envoy sidecar proxies when you deploy your application later
-kubectl label namespace argocd  istio-injection=enabled
 
 ```
 # Deploy istio Gateway and Virtualservice
