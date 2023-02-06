@@ -113,3 +113,5 @@ kubectl get gateway -n argocd
 kubectl get virtualservice -n argocd 
 
 ```
+
+Using Istio Gateway to Route Traffic to Microservices on Amazon EKS - https://www.youtube.com/watch?v=_ImVPrUZ6yY
