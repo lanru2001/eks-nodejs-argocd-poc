@@ -66,25 +66,13 @@ kubectl create namespace istio-system
 
 ```bash
 
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: argocd-cmd-params-cm
-  namespace: argocd
-  labels:
-    app.kubernetes.io/name: argocd-cmd-params-cm
-    app.kubernetes.io/part-of: argocd
+# kubectl edit cm argocd-cmd-params-cm
+# and add server.insecure option
+
 data:
   server.insecure: "true"
   
-kubectl patch deployment \
-  argocd-server \
-  --namespace argocd \
-  --type='json' \
-  -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/args", "value": [
-  "server",
-  "--auth-mode=server"
-]}]'
+Then restart the argocd-server deployment
 ```
 
 # Download istio
