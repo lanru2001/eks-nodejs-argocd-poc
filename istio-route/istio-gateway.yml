@@ -1,27 +1,45 @@
-apiVersion: networking.istio.io/v1alpha3
+# Gateway describes a load balancer operating at the edge of the mesh receiving incoming or outgoing HTTP/TCP connections. The specification describes a set of ports that should be exposed, the type of protocol to use, SNI configuration for the load balancer
+apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: argocd-gateway
+  name: my-argocd-gateway
   namespace: argocd
 spec:
   selector:
     istio: ingressgateway
   servers:
-    - hosts:
-        - dev.argocd.com
-      port:
-        name: https
-        number: 443
-        protocol: HTTPS
-      tls:
-        mode: SIMPLE
-        credentialName: argocd-secret    
-    - hosts:
-        - dev.argocd.com
-      port:
-        name: http
-        number: 80
-        protocol: HTTP
-      tls:
-        httpsRedirect: true      
+  - hosts:
+    - '*'
+    port:
+      name: http
+      number: 80
+      protocol: HTTP
+
+
+# apiVersion: networking.istio.io/v1alpha3
+# kind: Gateway
+# metadata:
+#   name: argocd-gateway
+#   namespace: argocd
+# spec:
+#   selector:
+#     istio: ingressgateway
+#   servers:
+#     - hosts:
+#         - dev.argocd.com
+#       port:
+#         name: https
+#         number: 443
+#         protocol: HTTPS
+#       tls:
+#         mode: SIMPLE
+#         credentialName: argocd-secret    
+#     - hosts:
+#         - dev.argocd.com
+#       port:
+#         name: http
+#         number: 80
+#         protocol: HTTP
+#       tls:
+#         httpsRedirect: true      
         
