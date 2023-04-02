@@ -1,10 +1,20 @@
-apiVersion: networking.istio.io/v1alpha3
+# DestinationRule defines policies that apply to traffic intended for a service after routing has occurred. These rules specify configuration for load balancing, connection pool size from the sidecar, and outlier detection settings to detect and evict unhealthy hosts from the load balancing pool
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
-  name: argocd-server-dtrl
-  namespace: istio-system
+  name: argued-destinationrule
 spec:
-  host: dev.argocd.com
+  host: argocd-server.argocd.svc.cluster.local
   trafficPolicy:
-    tls:
-      mode: DISABLE
+    loadBalancer:
+      simple: ROUND_ROBIN
+# apiVersion: networking.istio.io/v1alpha3
+# kind: DestinationRule
+# metadata:
+#   name: argocd-server-dtrl
+#   namespace: istio-system
+# spec:
+#   host: dev.argocd.com
+#   trafficPolicy:
+#     tls:
+#       mode: DISABLE
