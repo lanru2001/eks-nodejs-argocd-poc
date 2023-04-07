@@ -84,8 +84,8 @@ cd istio-1.16.2
 # Add the istioctl client to your path (Linux or macOS)
 export PATH=$PWD/bin:$PATH
 
-# For this installation, we use the demo configuration profile. It’s selected to have a good set of defaults for testing, but there are other profiles for production or performance testing
-istioctl install --set profile=demo -y
+# Istio installation
+istioctl install 
 
 ```
 # Deploy istio Gateway and Virtualservice
